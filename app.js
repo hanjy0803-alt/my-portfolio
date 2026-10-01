@@ -48,18 +48,20 @@ if (financialDialog && companyCardButton) {
 
 const motionAllowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const introOverlay = document.getElementById('intro-overlay');
-if (introOverlay && motionAllowed && !location.hash) {
+const replayIntro = document.getElementById('intro-replay');
+if (introOverlay && replayIntro) {
   const introVideo = document.getElementById('intro-video');
   const skipIntro = document.getElementById('intro-skip');
   const soundButton = document.getElementById('intro-sound');
   const playButton = document.getElementById('intro-play');
+  let returnFocus = document.querySelector('.brand');
   const finishIntro = () => {
+    if (introOverlay.hidden) return;
     introVideo.pause();
     introOverlay.hidden = true;
     document.body.classList.remove('intro-active');
-    skipIntro.removeEventListener('click', finishIntro);
     document.removeEventListener('keydown', onIntroKeydown);
-    document.querySelector('.brand')?.focus();
+    returnFocus?.focus();
   };
   const onIntroKeydown = event => {
     if (event.key === 'Escape') finishIntro();
@@ -76,13 +78,24 @@ if (introOverlay && motionAllowed && !location.hash) {
       }
     }
   };
-  introOverlay.hidden = false;
-  document.body.classList.add('intro-active');
-  skipIntro.focus();
+  const startIntro = (focusTarget) => {
+    returnFocus = focusTarget;
+    introVideo.pause();
+    introVideo.currentTime = 0;
+    introVideo.muted = true;
+    soundButton.textContent = '소리 켜기';
+    playButton.hidden = true;
+    introOverlay.hidden = false;
+    document.body.classList.add('intro-active');
+    skipIntro.focus();
+    document.addEventListener('keydown', onIntroKeydown);
+    introVideo.play().catch(() => { playButton.hidden = false; });
+  };
+  replayIntro.hidden = false;
+  replayIntro.addEventListener('click', () => startIntro(replayIntro));
   skipIntro.addEventListener('click', finishIntro);
   introVideo.addEventListener('ended', finishIntro);
   introVideo.addEventListener('error', finishIntro);
-  document.addEventListener('keydown', onIntroKeydown);
   soundButton.addEventListener('click', () => {
     introVideo.muted = !introVideo.muted;
     soundButton.textContent = introVideo.muted ? '소리 켜기' : '소리 끄기';
@@ -91,7 +104,7 @@ if (introOverlay && motionAllowed && !location.hash) {
     playButton.hidden = true;
     introVideo.play().catch(() => { playButton.hidden = false; });
   });
-  introVideo.play().catch(() => { playButton.hidden = false; });
+  if (motionAllowed && !location.hash) startIntro(document.querySelector('.brand'));
 }
 if (motionAllowed && 'IntersectionObserver' in window) {
   const sections = document.querySelectorAll('.scroll-reveal');

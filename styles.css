@@ -144,3 +144,8 @@
 .intro-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:16px}
 @media(max-width:720px){.intro-controls{padding:20px;align-items:flex-start;flex-direction:column}.intro-caption{font-size:10px}.intro-controls button{padding-inline:12px}}
 @media print{.intro-overlay{display:none!important}.intro-active{overflow:visible}}
+.intro-replay[hidden]{display:none!important}
+.intro-replay{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:8px 0;border:0;border-bottom:1px solid var(--navy);background:transparent;color:var(--navy);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.intro-replay:hover{color:var(--green-dark);border-color:var(--green-dark)}
+.intro-replay:focus-visible{outline:3px solid var(--green-dark);outline-offset:4px}
+@media print{.intro-replay{display:none!important}}
