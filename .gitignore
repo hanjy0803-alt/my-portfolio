@@ -1,0 +1,21 @@
+# Secrets and local settings
+.env
+.env.*
+
+# Draft and practice pages
+broken2.html
+practice*.html
+warmup*.html
+*연습*.html
+
+# Source downloads and local extraction scripts
+data/dart-*
+scripts/
+
+# Internal working notes; the published site uses the files listed in README.md.
+AGENTS.md
+DESIGN*.md
+prd.md
+safety_rules.md
+data/financials.md
+
