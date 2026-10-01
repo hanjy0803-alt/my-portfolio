@@ -130,3 +130,17 @@
 .guestbook-entries article p{margin-top:7px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
 @media(max-width:720px){.guestbook-section{padding:24px 20px}.guestbook-grid{grid-template-columns:1fr;gap:28px}}
 @media print{.guestbook-section{display:none!important}}
+
+/* Full-screen opening film; content remains available through Skip and reduced motion. */
+.intro-overlay[hidden],.intro-play[hidden]{display:none!important}
+.intro-active{overflow:hidden}
+.intro-overlay{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#071421;color:#fff}
+.intro-overlay video{display:block;width:100%;height:100%;object-fit:contain}
+.intro-controls{position:absolute;inset:auto 0 0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:30px max(32px,calc((100vw - 1120px)/2));background:linear-gradient(transparent,rgba(3,13,26,.85));font-size:12px;letter-spacing:1.2px}
+.intro-controls>div{display:flex;gap:10px}
+.intro-controls button,.intro-play{min-height:44px;padding:9px 16px;border:1px solid rgba(255,255,255,.65);border-radius:4px;background:rgba(11,31,58,.72);color:#fff;font:inherit;font-weight:700;letter-spacing:0;cursor:pointer}
+.intro-controls button:hover,.intro-play:hover{background:#214b60}
+.intro-controls button:focus-visible,.intro-play:focus-visible{outline:3px solid #72e0b7;outline-offset:3px}
+.intro-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:16px}
+@media(max-width:720px){.intro-controls{padding:20px;align-items:flex-start;flex-direction:column}.intro-caption{font-size:10px}.intro-controls button{padding-inline:12px}}
+@media print{.intro-overlay{display:none!important}.intro-active{overflow:visible}}

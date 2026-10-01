@@ -47,6 +47,52 @@ if (financialDialog && companyCardButton) {
 }
 
 const motionAllowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const introOverlay = document.getElementById('intro-overlay');
+if (introOverlay && motionAllowed && !location.hash) {
+  const introVideo = document.getElementById('intro-video');
+  const skipIntro = document.getElementById('intro-skip');
+  const soundButton = document.getElementById('intro-sound');
+  const playButton = document.getElementById('intro-play');
+  const finishIntro = () => {
+    introVideo.pause();
+    introOverlay.hidden = true;
+    document.body.classList.remove('intro-active');
+    skipIntro.removeEventListener('click', finishIntro);
+    document.removeEventListener('keydown', onIntroKeydown);
+    document.querySelector('.brand')?.focus();
+  };
+  const onIntroKeydown = event => {
+    if (event.key === 'Escape') finishIntro();
+    if (event.key === 'Tab') {
+      const controls = [soundButton, skipIntro, playButton].filter(button => !button.hidden);
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  };
+  introOverlay.hidden = false;
+  document.body.classList.add('intro-active');
+  skipIntro.focus();
+  skipIntro.addEventListener('click', finishIntro);
+  introVideo.addEventListener('ended', finishIntro);
+  introVideo.addEventListener('error', finishIntro);
+  document.addEventListener('keydown', onIntroKeydown);
+  soundButton.addEventListener('click', () => {
+    introVideo.muted = !introVideo.muted;
+    soundButton.textContent = introVideo.muted ? '소리 켜기' : '소리 끄기';
+  });
+  playButton.addEventListener('click', () => {
+    playButton.hidden = true;
+    introVideo.play().catch(() => { playButton.hidden = false; });
+  });
+  introVideo.play().catch(() => { playButton.hidden = false; });
+}
 if (motionAllowed && 'IntersectionObserver' in window) {
   const sections = document.querySelectorAll('.scroll-reveal');
   const sectionObserver = new IntersectionObserver(entries => {
