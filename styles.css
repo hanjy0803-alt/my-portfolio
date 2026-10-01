@@ -162,3 +162,11 @@
 .flow-region .closing{background:linear-gradient(180deg,rgba(11,31,58,.2),rgba(11,31,58,.85) 38%,rgba(11,31,58,.93))}
 @media(max-width:720px){#ai-tools .section-heading,#ai-tools .application-note{padding:20px}}
 @media print{.flow-region .closing{background:#fff}#ai-tools .section-heading,#ai-tools .application-note{background:#fff;color:var(--ink)}#ai-tools .section-heading h2,#ai-tools .section-heading>p,#ai-tools .application-note,#ai-tools .application-note strong{color:var(--navy)}}
+
+/* Stronger secondary text throughout the light cards and sections. */
+:root{--muted:#31445a}
+.profile-contact{display:flex;flex-direction:column;gap:4px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.profile-contact>span{color:#075e48;font-size:10px;font-weight:800;letter-spacing:1.6px}
+.profile-contact a{width:max-content;max-width:100%;color:var(--navy);font-size:14px;font-weight:700;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:#10b981;text-underline-offset:4px}
+.profile-contact a:hover{color:#075e48}
+.profile-contact a:focus-visible{outline:3px solid var(--green-dark);outline-offset:3px}
