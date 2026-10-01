@@ -1,0 +1,90 @@
+{
+    "company":  "HD현대중공업",
+    "corp_code":  "01390344",
+    "business_year":  2025,
+    "report_code":  "11011",
+    "report_name":  "사업보고서 (2025.12)",
+    "receipt_no":  "20260320000859",
+    "source_url":  "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260320000859",
+    "generated_at":  "2026-10-01T14:23:46.9658467+09:00",
+    "source_downloaded_at":  "2026-10-01T05:20:43.6696510Z",
+    "metrics":  [
+                    {
+                        "id":  "revenue",
+                        "label":  "매출액",
+                        "value":  17580633257000,
+                        "unit":  "KRW",
+                        "value_100_million_krw":  175806.33257,
+                        "period_start":  "2025-01-01",
+                        "period_end":  "2025-12-31",
+                        "basis":  "연결재무제표",
+                        "source":  {
+                                       "endpoint":  "fnlttSinglAcntAll.json",
+                                       "account_id":  "ifrs-full_Revenue",
+                                       "account_name":  "매출액",
+                                       "statement":  "포괄손익계산서",
+                                       "raw_value":  "17580633257000",
+                                       "receipt_no":  "20260320000859",
+                                       "url":  "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260320000859"
+                                   }
+                    },
+                    {
+                        "id":  "operating_profit",
+                        "label":  "영업이익",
+                        "value":  2037510103000,
+                        "unit":  "KRW",
+                        "value_100_million_krw":  20375.10103,
+                        "period_start":  "2025-01-01",
+                        "period_end":  "2025-12-31",
+                        "basis":  "연결재무제표",
+                        "source":  {
+                                       "endpoint":  "fnlttSinglAcntAll.json",
+                                       "account_id":  "dart_OperatingIncomeLoss",
+                                       "account_name":  "영업이익",
+                                       "statement":  "포괄손익계산서",
+                                       "raw_value":  "2037510103000",
+                                       "receipt_no":  "20260320000859",
+                                       "url":  "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260320000859"
+                                   }
+                    },
+                    {
+                        "id":  "order_backlog",
+                        "label":  "수주잔고",
+                        "value":  56384472000000,
+                        "unit":  "KRW",
+                        "value_100_million_krw":  563844.72,
+                        "as_of":  "2025-12-31",
+                        "basis":  "사업보고서 II. 사업의 내용 / 4. 매출 및 수주상황 / 다. 수주상황, 기말수주잔고 합계",
+                        "breakdown":  [
+                                          {
+                                              "label":  "조선",
+                                              "value_million_krw":  44351125,
+                                              "value_krw":  44351125000000
+                                          },
+                                          {
+                                              "label":  "해양플랜트",
+                                              "value_million_krw":  2445087,
+                                              "value_krw":  2445087000000
+                                          },
+                                          {
+                                              "label":  "기타",
+                                              "value_million_krw":  9588260,
+                                              "value_krw":  9588260000000
+                                          }
+                                      ],
+                        "source":  {
+                                       "endpoint":  "document.xml",
+                                       "raw_value":  56384472,
+                                       "raw_unit":  "백만원",
+                                       "receipt_no":  "20260320000859",
+                                       "url":  "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260320000859"
+                                   }
+                    }
+                ],
+    "notes":  [
+                  "매출액 및 영업이익은 2025 회계연도 연결재무제표 당기금액입니다.",
+                  "수주잔고는 재무제표 계정이 아닌 사업보고서 수주상황의 2025-12-31 기말 합계입니다.",
+                  "수주현황에는 사업결합 및 외화계약 환율변동, 계약 취소와 금액 변경 등이 반영되어 있습니다.",
+                  "원 단위 환산값을 저장하되 수주잔고의 원문 공시 정밀도는 백만원입니다."
+              ]
+}
