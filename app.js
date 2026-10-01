@@ -58,7 +58,7 @@ if (motionAllowed && 'IntersectionObserver' in window) {
   document.documentElement.classList.add('motion-ready');
 }
 
-const flowRegion = document.getElementById('flow-region');
+const flowRegion = document.querySelector('main.flow-region');
 if (flowRegion && motionAllowed) {
   let flowFrame = 0;
   const updateFlow = () => {

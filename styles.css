@@ -33,10 +33,11 @@
 /* Shared color field carries the AI and company sections without a hard seam. */
 .flow-region{--flow-y:16%;position:relative;isolation:isolate;overflow:clip}
 .flow-region::before,.flow-region::after{content:"";position:absolute;inset:0;pointer-events:none}
-.flow-region::before{z-index:0;background:linear-gradient(180deg,#f8fafc 0%,#e8f4ef 17%,#b9dcd1 35%,#71aaa3 52%,#285c64 72%,#0b1f3a 100%)}
-.flow-region::after{z-index:0;background:radial-gradient(ellipse 75% 20% at 73% var(--flow-y),rgba(255,255,255,.48),transparent 72%),radial-gradient(ellipse 56% 23% at 18% calc(var(--flow-y) + 12%),rgba(16,185,129,.35),transparent 75%)}
+.flow-region::before{z-index:0;background:linear-gradient(180deg,#f8fafc 0%,#edf6f2 18%,#d9ede5 38%,#baded4 57%,#82b4ad 72%,#346d73 81%,#0b1f3a 87%,#0b1f3a 92%,#f8fafc 100%)}
+.flow-region::after{z-index:0;background:radial-gradient(ellipse 80% 14% at 73% var(--flow-y),rgba(255,255,255,.52),transparent 72%),radial-gradient(ellipse 60% 16% at 18% calc(var(--flow-y) + 10%),rgba(16,185,129,.38),transparent 76%)}
 .flow-region>section{position:relative;z-index:1}
-.flow-region .industry-section{background:transparent}
+.flow-region .hero,.flow-region .project-section,.flow-region .industry-section,.flow-region .closing{background:transparent}
+.flow-region .chatbot-entry{margin-block:34px 45px;padding:34px;background:rgba(255,255,255,.93);border:1px solid rgba(220,228,234,.8);border-radius:18px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .motion-ready .scroll-reveal{opacity:0;filter:blur(7px);transform:translateY(58px) scale(.965);transition:opacity .9s cubic-bezier(.2,.75,.25,1),filter .9s ease,transform .9s cubic-bezier(.2,.75,.25,1)}
 .motion-ready .scroll-reveal.is-visible{opacity:1;filter:none;transform:none}
 .company-section{scroll-margin-top:110px;padding-bottom:125px}
@@ -80,4 +81,4 @@
 @media(max-width:720px){.company-card-button{grid-template-columns:112px minmax(0,1fr) 28px;gap:8px;min-height:86px;padding:12px 10px}.company-logo-panel{padding:5px 8px}.company-card-meta small{font-size:8px;letter-spacing:.3px}.company-card-meta strong{font-size:16px}.company-card-meta>span{font-size:10px}.company-card-arrow{width:28px;height:28px;font-size:16px}.financial-dialog{padding:20px 15px}.financial-table{font-size:12px}.financial-table th,.financial-table td{padding:10px 6px}.financial-table td:last-child{min-width:80px}}
 @media(max-width:380px){.company-card-button{grid-template-columns:90px minmax(0,1fr) 26px}.company-card-meta small{display:none}}
 @media(prefers-reduced-motion:reduce){.motion-ready .scroll-reveal,.company-card-button,.company-card-arrow{transition:none}.motion-ready .scroll-reveal{opacity:1;filter:none;transform:none}.financial-dialog[open],.financial-dialog[open].is-closing,.financial-dialog::backdrop,.financial-dialog.is-closing::backdrop{animation:none}}
-@media print{.flow-region::before,.flow-region::after{display:none}.flow-region .industry-section{background:white}.company-section{padding-bottom:25px}.company-section .section-heading h2{color:var(--navy)}.company-section .section-heading>p{color:var(--muted)}.motion-ready .scroll-reveal{opacity:1;filter:none;transform:none}.financial-dialog{display:none!important}}
+@media print{.flow-region::before,.flow-region::after{display:none}.flow-region .hero,.flow-region .project-section,.flow-region .industry-section,.flow-region .closing{background:white}.company-section{padding-bottom:25px}.company-section .section-heading h2{color:var(--navy)}.company-section .section-heading>p{color:var(--muted)}.motion-ready .scroll-reveal{opacity:1;filter:none;transform:none}.financial-dialog{display:none!important}}
