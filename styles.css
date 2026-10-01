@@ -165,8 +165,8 @@
 
 /* Stronger secondary text throughout the light cards and sections. */
 :root{--muted:#31445a}
-.profile-contact{display:flex;flex-direction:column;gap:4px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.profile-contact>span{color:#075e48;font-size:10px;font-weight:800;letter-spacing:1.6px}
-.profile-contact a{width:max-content;max-width:100%;color:var(--navy);font-size:14px;font-weight:700;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:#10b981;text-underline-offset:4px}
-.profile-contact a:hover{color:#075e48}
-.profile-contact a:focus-visible{outline:3px solid var(--green-dark);outline-offset:3px}
+.profile-inline-contact{display:flex;flex-direction:column;gap:2px;margin-top:9px}
+.profile-inline-contact a{color:inherit;font:inherit;overflow-wrap:anywhere}
+.profile-inline-contact a:hover{text-decoration:underline;text-underline-offset:3px}
+.profile-inline-contact a:focus-visible{outline:3px solid var(--green-dark);outline-offset:3px}
+.profile-inline-contact a span{display:inline-block;width:17px;color:var(--green-dark);font-size:14px}
